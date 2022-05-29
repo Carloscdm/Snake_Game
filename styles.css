@@ -1,0 +1,274 @@
+/*
+Variables
+*/
+
+:root {
+    /*General*/
+    --fontSize: 25px;
+
+    /*Colores de la estructura*/
+    --emptySquare: #456990;
+    --snakeSquare: #e2f47f;
+    --foodSquare: #f35a69;
+
+    /*Variabñes de las ventanas modales*/
+    --transition: all 0.3s linear;
+    --clr-white: #fff;
+    --radius: 0.5rem;
+    --fixed-width: 620px;
+}
+
+/*
+Ajustes generales
+*/
+* {
+    font-family: 'Share Tech Mono', monospace;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+body {
+    /*height: 100%;*/
+    margin: 0;
+    padding: 0;
+
+    height: 100vh;
+    min-height: 600px;
+    min-width: 550px;
+
+    /*Fondo - Gradiente*/
+    background: linear-gradient(0deg, #000, #272727);
+}
+
+#game {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%;
+    min-width: 500px;
+
+    background-color: rgb(19, 130, 228);
+    width: 500px;
+    height: 560px;
+
+    border: 1px solid white;
+}
+
+#game:before,
+#game:after {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094,
+            #0000ff, #00ff00, #ffff00, #ff0000);
+    background-size: 400%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -1;
+    animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+#game:after {
+    filter: blur(50px);
+}
+
+
+
+
+
+
+
+
+
+
+
+#info {
+    background-color: yellow;
+    height: 50px;
+    margin-top: 1px;
+    padding: 5px;
+}
+
+
+#board,
+.boardInfo {
+    max-width: 500px;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+}
+
+#start,
+.boardInfo {
+    font-size: var(--fontSize);
+}
+
+#gameOver {
+    display: none;
+}
+
+.boardInfo {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/*
+Botón de start
+*/
+#start {
+    background-color: #f35a69;
+    border: none;
+    color: white;
+    font-size: var(--fontSize);
+}
+#start:hover {
+    background-color: #e6d6d7;
+    transition: all 500ms ease-out;;
+}
+
+/*
+Botón de historial
+*/
+#btn_history {
+    background-color: #f35a69;
+    border: none;
+    color: white;
+    font-size: var(--fontSize);
+}
+#btn_history:hover {
+    background-color: #e6d6d7;
+    transition: all 500ms ease-out;;
+}
+
+
+#scoreBoard {
+    display: inline-flex;
+}
+
+.square {
+    aspect-ratio: 1;
+}
+
+/*
+Casillas del juego
+*/
+.emptySquare {
+    background-color: var(--emptySquare);
+}
+
+.snakeSquare {
+    background-color: var(--snakeSquare);
+}
+
+.foodSquare {
+    background-color: var(--foodSquare);
+}
+
+/*
+Ventana Modal - Inicio
+*/
+.modal-start {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(125, 131, 134, 0.5);
+    display: grid;
+    place-items: center;
+    transition: var(--transition);
+    visibility: hidden;
+    z-index: -10;
+}
+
+.modal-container {
+    background: var(--clr-white);
+    border-radius: var(--radius);
+    width: 90vw;
+    height: 30vh;
+    max-width: var(--fixed-width);
+    text-align: center;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+/*
+Ventana Modal - Game Over
+*/
+.modal-gameover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(125, 131, 134, 0.5);
+    display: grid;
+    place-items: center;
+    transition: var(--transition);
+    visibility: hidden;
+    z-index: -10;
+}
+
+
+.modal-score {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(125, 131, 134, 0.5);
+    display: grid;
+    place-items: center;
+    transition: var(--transition);
+    visibility: hidden;
+    z-index: -10;
+}
+
+.modal-container_SC {
+    background: var(--clr-white);
+    border-radius: var(--radius);
+    width: 90vw;
+    height: 40vh;
+    max-width: var(--fixed-width);
+    text-align: center;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+#score-list{
+    height: 70%;
+    list-style-type: none;
+    overflow: overlay;
+    margin: 0px auto;
+    padding: 0px;
+    width: 80%;
+}
+
+.open-modal {
+    visibility: visible;
+    z-index: 10;
+}

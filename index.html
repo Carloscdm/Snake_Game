@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet" />
+    <script src="script.js" type="text/javascript" defer></script>
+</head>
+
+<body>
+    <!--Juego-->
+    <div id="game">
+        <div id="board"></div>
+
+        <div id="info">
+            <div class="boardInfo">
+                <div>
+                    Score: <div id="scoreBoard"></div>
+                </div>
+                <div>
+                    <button id="btn_history" type="button">History</button>
+                    <button id="start" type="button">Start</button>
+                </div>
+
+            </div>
+            <div id="gameOver"> Game Over</div>
+        </div>
+
+    </div>
+
+    <!--Ventana Modal de inicio-->
+    <div class="modal-start">
+        <div class="modal-container">
+            <h3>Snake</h3>
+            <p>Para controlar la serpiente utiliza las flechas del teclado.</br> Buena suerte ;)</p>
+            <button class="close-btn">¡¡Vamos!!</button>
+        </div>
+    </div>
+
+    <!--Ventana Modal de Final-->
+    <div class="modal-gameover">
+        <div class="modal-container">
+            <h3>Game Over</h3>
+            <p>Gracias por jugar</br> Mete tu nombre para salir en el ranking</p>
+            <input type="text" id="score-name">
+            <button id="close-btn-GO">Aceptar</button>
+        </div>
+    </div>
+
+    <!--Ventana Modal de Puntuación-->
+    <div class="modal-score">
+        <div class="modal-container_SC">
+            <h3>Puntuaciones</h3>
+            <ul id="score-list">
+
+            </ul>
+            <button id="close-btn-SC">Aceptar</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
